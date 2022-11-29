@@ -1,0 +1,25 @@
+routes:
+  user:
+    id: ${user.service.id:user-microservice}
+    uri: ${user.service.url:http://10.10.14.53:9001/}
+    path: ${user.service.path:/auth/**}
+  credit:
+    id: ${credit.service.id:credit-microservice}
+    uri: ${credit.service.url:http://10.10.14.53:9002/}
+    path: ${credit.service.path:/credit/**}
+  deposit:
+    id: ${deposit.service.id:deposit-microservice}
+    uri: ${deposit.service.url:http://10.10.14.53:9003/}
+    path: ${deposit.service.path:/deposit/**}
+  info:
+    id: ${info.service.id:info-microservice}
+    uri: ${info.service.url:http://10.10.14.53:9006/}
+    path: ${info.service.path:/info/**}
+
+app:
+  description: Test version of API-Gateway
+  version: 0.0.1-SNAPSHOT
+  stage: test
+
+server:
+    url: ${app.server.url}
