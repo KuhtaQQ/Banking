@@ -35,11 +35,6 @@ spring:
           predicates:
             - Path=/api/v1/bank-branch/**, /api/v1/currency/**, /api/v1/exchange-rates/**
 
-cors:
-  mapping-path: ${mapping-path:/auth/**}
-  allowed-origins: ${allowed-origins:localhost}
-  allowed-methods: ${allowed-methods:GET, POST}
-
 eureka:
   instance:
     instance-id: ${spring.application.name}
@@ -60,3 +55,5 @@ springdoc:
         url: /user-service/api-docs
       - name: info-service
         url: /info-service/api-docs
+  webjars:
+    prefix: rmt-bank
