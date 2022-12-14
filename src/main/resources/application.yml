@@ -39,6 +39,9 @@ eureka:
   instance:
     instance-id: ${spring.application.name}
     preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://10.10.14.11:9004/eureka
 
 springdoc:
   api-docs:
