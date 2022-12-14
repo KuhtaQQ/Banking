@@ -1,4 +1,0 @@
-cors:
-  mapping-path: ${mapping-path:/auth/**}
-  allowed-origins: ${allowed-origins:localhost}
-  allowed-methods: ${allowed-methods:GET, POST}
