@@ -1,25 +1,59 @@
-routes:
-  user:
-    id: ${user.service.id:user-microservice}
-    uri: ${user.service.url:http://10.10.14.53:9001/}
-    path: ${user.service.path:/auth/**}
-  credit:
-    id: ${credit.service.id:credit-microservice}
-    uri: ${credit.service.url:http://10.10.14.53:9002/}
-    path: ${credit.service.path:/credit/**}
-  deposit:
-    id: ${deposit.service.id:deposit-microservice}
-    uri: ${deposit.service.url:http://10.10.14.53:9003/}
-    path: ${deposit.service.path:/deposit/**}
-  info:
-    id: ${info.service.id:info-microservice}
-    uri: ${info.service.url:http://10.10.14.53:9006/}
-    path: ${info.service.path:/info/**}
-
-app:
-  description: Test version of API-Gateway
-  version: 0.0.1-SNAPSHOT
-  stage: test
-
 server:
-    url: ${app.server.url}
+  port: 9004
+
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: api-gateway
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+    discovery:
+      enabled: true
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: deposit-service
+          uri: lb://deposit-service
+          predicates:
+            - Path=/api/v1/cards-products/**, /api/v1/deposit-cards/**, /api/v1/deposits/**, /api/v1/deposit-products/**, /api/v1/accounts/**
+        - id: credit-service
+          uri: lb://credit-service
+          predicates:
+            - Path=/api/v1/credit-cards/**, /api/v1/credits/**, /api/v1/credit-orders/**, /api/v1/credit-products/**
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/api/v1/auth/**, /api/v1/user-service/**, /api/v1/security/session/**, /api/v1/register/**, /api/v1/user/settings/**
+        - id: info-service
+          uri: lb://info-service
+          predicates:
+            - Path=/api/v1/bank-branch/**, /api/v1/currency/**, /api/v1/exchange-rates/**
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}
+    preferIpAddress: true
+
+springdoc:
+  api-docs:
+    path: '/api-docs'
+  swagger-ui:
+    path: '/swagger-ui'
+    operationsSorter: method
+    urls:
+      - name: deposit-service
+        url: /deposit-service/api-docs
+      - name: credit-service
+        url: /credit-service/api-docs
+      - name: user-service
+        url: /user-service/api-docs
+      - name: info-service
+        url: /info-service/api-docs
+  webjars:
+    prefix: rmt-bank
