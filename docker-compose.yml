@@ -1,0 +1,10 @@
+version: '3.6'
+
+services:
+  rmt-new-info:
+    image: $AND_DOCKER_REGISTRY_NAME/$PROGECT-$APP:dev
+    container_name: $APP-dev
+    env_file: $ENV_DEV
+    ports:
+      - 9005:8080
+    restart: always
