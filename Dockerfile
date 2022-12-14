@@ -18,6 +18,6 @@ RUN mvn sonar:sonar \
 
 FROM alpine:3.15.3
 RUN apk --no-cache add openjdk11-jre
-COPY --from=builder /src/target/api-gateway-service-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=builder /src/target/api-gateway-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","/app.jar"]
