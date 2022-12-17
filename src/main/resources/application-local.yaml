@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8082
 
 spring:
   main:
@@ -21,7 +21,7 @@ spring:
         - id: deposit-service
           uri: lb://deposit-service
           predicates:
-            - Path=/cards-products/**, /deposit-cards/**, /deposits/**, /deposit-products/**, /accounts/**
+            - Path=/auth/cards-products/**, /auth/deposit-cards/**, /auth/deposits/**, /auth/deposit-products/**, /auth/accounts/**
         - id: credit-service
           uri: lb://credit-service
           predicates:
@@ -39,9 +39,11 @@ eureka:
   instance:
     instance-id: ${spring.application.name}
     preferIpAddress: true
+    ip-address: ${server.address:10.10.14.53}
+    non-secure-port: 9005
   client:
     serviceUrl:
-      defaultZone: http://localhost:8080/eureka
+      defaultZone: http://10.10.14.11:9004/eureka
 
 springdoc:
   api-docs:
