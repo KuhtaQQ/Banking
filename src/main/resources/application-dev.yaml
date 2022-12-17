@@ -21,7 +21,8 @@ spring:
         - id: deposit-service
           uri: http://http://10.10.14.11:9003
           predicates:
-            - Path=/cards-products/**, /deposit-cards/**, /deposits/**, /deposit-products/**, /accounts/**
+            - Path=/cards-products/
+#            - Path=/cards-products/**, /deposit-cards/**, /deposits/**, /deposit-products/**, /accounts/**
 #        - id: credit-service
 #          uri: lb://credit-service
 #          predicates:
