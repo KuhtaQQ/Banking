@@ -11,29 +11,35 @@ spring:
       ribbon:
         enabled: false
     discovery:
-      enabled: true
+      enabled: false
     gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
+#      discovery:
+#        locator:
+#          enabled: true
+#          lower-case-service-id: true
       routes:
         - id: deposit-service
-          uri: lb://deposit-service
+          uri: http://http://10.10.14.11:9003
           predicates:
             - Path=/cards-products/**, /deposit-cards/**, /deposits/**, /deposit-products/**, /accounts/**
-        - id: credit-service
-          uri: lb://credit-service
-          predicates:
-            - Path=/credit-cards/**, /credits/**, /credit-orders/**, /credit-products/**
-        - id: user-service
-          uri: lb://user-service
-          predicates:
-            - Path=/auth/**, /user-service/**, /security/session/**, /register/**, /user/settings/**
-        - id: info-service
-          uri: lb://info-service
-          predicates:
-            - Path=/bank-branch/**, /currency/**, /exchange-rates/**
+#        - id: credit-service
+#          uri: lb://credit-service
+#          predicates:
+#            - Path=/credit-cards/**, /credits/**, /credit-orders/**, /credit-products/**
+#        - id: user-service
+#          uri: lb://user-service
+#          predicates:
+#            - Path=/auth/**, /user-service/**, /security/session/**, /register/**, /user/settings/**
+#        - id: info-service
+#          uri: lb://info-service
+#          predicates:
+#            - Path=/bank-branch/**, /currency/**, /exchange-rates/**
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 eureka:
   instance:
