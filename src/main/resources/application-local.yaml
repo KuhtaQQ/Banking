@@ -4,6 +4,7 @@ server:
 spring:
   main:
     web-application-type: reactive
+    banner-mode: console
   application:
     name: api-gateway
   cloud:
@@ -43,7 +44,7 @@ eureka:
     non-secure-port: 9005
   client:
     serviceUrl:
-      defaultZone: http://10.10.14.11:9004/eureka
+      defaultZone: http://localhost:8080/eureka
 
 springdoc:
   api-docs:
