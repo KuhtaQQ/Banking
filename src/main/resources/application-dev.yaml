@@ -21,7 +21,7 @@ spring:
         - id: deposit-service
           uri: lb://deposit-service
           predicates:
-            - Path=/cards-products/**, /deposit-cards/**, /deposits/**, /deposit-products/**, /accounts/**
+            - Path=/auth/cards-products/**, /auth/deposit-cards/**, /auth/deposits/**, /auth/deposit-products/**, /auth/accounts/**
         - id: credit-service
           uri: lb://credit-service
           predicates:
@@ -34,12 +34,6 @@ spring:
           uri: lb://info-service
           predicates:
             - Path=/bank-branch/**, /currency/**, /exchange-rates/**
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
 
 eureka:
   instance:
