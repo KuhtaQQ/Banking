@@ -11,30 +11,30 @@ spring:
     loadbalancer:
       ribbon:
         enabled: false
-    discovery:
-      enabled: true
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-      routes:
-        - id: deposit
-          uri: lb://deposit
-          predicates:
-            - Path=/auth/cards-products/**, /auth/deposit-cards/**, /auth/deposits/**, /auth/deposit-products/**, /auth/accounts/**
-        - id: credit
-          uri: lb://credit
-          predicates:
-            - Path=/credit-cards/**, /credits/**, /credit-orders/**, /credit-products/**
-        - id: user
-          uri: lb://user
-          predicates:
-            - Path=/auth/**, /user-service/**, /security/session/**, /register/**, /settings/**
-        - id: info
-          uri: lb://info
-          predicates:
-            - Path=/bank-branch/**, /currency/**, /exchange-rates/**
+#    discovery:
+#      enabled: true
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+#          lower-case-service-id: true
+#      routes:
+#        - id: deposit
+#          uri: lb://deposit
+#          predicates:
+#            - Path=/auth/cards-products/**, /auth/deposit-cards/**, /auth/deposits/**, /auth/deposit-products/**, /auth/accounts/**
+#        - id: credit
+#          uri: lb://credit
+#          predicates:
+#            - Path=/credit-cards/**, /credits/**, /credit-orders/**, /credit-products/**
+#        - id: user
+#          uri: lb://user
+#          predicates:
+#            - Path=/auth/**, /user-service/**, /security/session/**, /register/**, /settings/**
+#        - id: info
+#          uri: lb://info
+#          predicates:
+#            - Path=/bank-branch/**, /currency/**, /exchange-rates/**
 
 eureka:
   instance:
