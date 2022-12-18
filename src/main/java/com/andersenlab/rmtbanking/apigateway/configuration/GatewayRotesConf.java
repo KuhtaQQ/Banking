@@ -12,21 +12,29 @@ public class GatewayRotesConf {
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder
                 .routes()
-                .route("deposit",
+                .route("1",
                         predicate -> predicate
-                                .path("/auth/cards-products",
+                                .path("deposit/cards-products",
                                         "/auth/deposit-cards",
                                         "/auth/deposits",
                                         "/auth/deposit-products",
                                         "/auth/accounts")
-                                .uri("http://10.10.14.53:9003"))
-                .route("credit",
-                        predicate -> predicate
-                                .path("/credit-cards",
-                                        "/credits",
-                                        "/credit-orders",
-                                        "/credit-products")
-                                .uri("http://10.10.14.53:9002"))
+                                .uri("http://10.10.14.53:9003/auth/cards-products"))
+//                .route("2",
+//                        predicate -> predicate
+//                                .path("deposit/cards-products",
+//                                        "/auth/deposit-cards",
+//                                        "/auth/deposits",
+//                                        "/auth/deposit-products",
+//                                        "/auth/accounts")
+//                                .uri("http://10.10.14.53:9003/auth/cards-products"))
+//                .route("credit",
+//                        predicate -> predicate
+//                                .path("/credit-cards",
+//                                        "/credits",
+//                                        "/credit-orders",
+//                                        "/credit-products")
+//                                .uri("http://10.10.14.53:9002"))
 //                .route("user",
 //                        predicate -> predicate
 //                                .path("/auth/**",
