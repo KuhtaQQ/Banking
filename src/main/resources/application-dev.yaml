@@ -12,7 +12,7 @@ spring:
       ribbon:
         enabled: false
     discovery:
-      enabled: false
+      enabled: true
     gateway:
       discovery:
         locator:
@@ -53,13 +53,13 @@ springdoc:
     path: '/swagger-ui'
     operationsSorter: method
     urls:
-      - name: deposit-service
+      - name: deposit
         url: /deposit-service/api-docs
-      - name: credit-service
+      - name: credit
         url: /credit-service/api-docs
-      - name: user-service
+      - name: user
         url: /user-service/api-docs
-      - name: info-service
+      - name: info
         url: /info-service/api-docs
   webjars:
     prefix: rmt-bank
