@@ -22,19 +22,19 @@ spring:
         - id: deposit
           uri: lb://deposit
           predicates:
-            - Path=/api/v1/cards-products/**, /api/v1/deposit-cards/**, /api/v1/deposits/**, /api/v1/deposit-products/**, /api/v1/accounts/**
+            - Path=/auth/cards-products/**, /auth/deposit-cards/**, /auth/deposits/**, /auth/deposit-products/**, /auth/accounts/**
         - id: credit
           uri: lb://credit
           predicates:
-            - Path=/api/v1/credit-cards/**, /api/v1/credits/**, /api/v1/credit-orders/**, /api/v1/credit-products/**
+            - Path=/credit-cards/**, /credits/**, /credit-orders/**, /credit-products/**
         - id: user
           uri: lb://user
           predicates:
-            - Path=/api/v1//auth/**, /api/v1/user-service/**, /api/v1/security/session/**, /api/v1/register/**, /api/v1/user/settings/**
+            - Path=/auth/**, /user-service/**, /security/session/**, /register/**, /settings/**
         - id: info
           uri: lb://info
           predicates:
-            - Path=/api/v1/bank-branch/**, /api/v1/currency/**, /api/v1/exchange-rates/**
+            - Path=/bank-branch/**, /currency/**, /exchange-rates/**
 
 eureka:
   instance:
