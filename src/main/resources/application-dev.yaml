@@ -22,15 +22,15 @@ spring:
         - id: deposit
           uri: lb://deposit
           predicates:
-            - Path=/auth/cards-products/**, /auth/deposit-cards/**, /auth/deposits/**, /auth/deposit-products/**, /auth/accounts/**
+            - Path=/api/v1/cards-products/**, /api/v1/deposit-cards/**, /api/v1/deposits/**, /api/v1/deposit-products/**, /api/v1/accounts/**
         - id: credit
           uri: lb://credit
           predicates:
-            - Path=/credit-cards/**, /credits/**, /credit-orders/**, /credit-products/**
+            - Path=/api/v1/credit-cards/**, /api/v1/credits/**, /api/v1/credit-orders/**, /api/v1/credit-products/**
         - id: user
           uri: lb://user
           predicates:
-            - Path=/auth/**, /user-service/**, /security/session/**, /register/**, /user/settings/**
+            - Path=/api/v1//auth/**, /api/v1/user-service/**, /api/v1/security/session/**, /api/v1/register/**, /api/v1/user/settings/**
         - id: info
           uri: lb://info
           predicates:
@@ -47,6 +47,8 @@ eureka:
       defaultZone: http://10.10.14.11:9004/eureka
 
 springdoc:
+  show-actuator: false
+  use-management-port: false
   api-docs:
     path: '/api-docs'
   swagger-ui:
