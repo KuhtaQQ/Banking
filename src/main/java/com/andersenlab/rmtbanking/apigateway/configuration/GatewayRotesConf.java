@@ -14,33 +14,33 @@ public class GatewayRotesConf {
                 .routes()
                 .route("deposit",
                         predicate -> predicate
-                                .path("/auth/cards-products/**",
-                                        "/auth/deposit-cards/**",
-                                        "/auth/deposits/**",
-                                        "/auth/deposit-products/**",
-                                        "/auth/accounts/**")
+                                .path("/auth/cards-products",
+                                        "/auth/deposit-cards",
+                                        "/auth/deposits",
+                                        "/auth/deposit-products",
+                                        "/auth/accounts")
                                 .uri("http://10.10.14.53:9003"))
                 .route("credit",
                         predicate -> predicate
-                                .path("/credit-cards/**",
-                                        "/credits/**",
-                                        "/credit-orders/**",
-                                        "/credit-products/**")
+                                .path("/credit-cards",
+                                        "/credits",
+                                        "/credit-orders",
+                                        "/credit-products")
                                 .uri("http://10.10.14.53:9002"))
-                .route("user",
-                        predicate -> predicate
-                                .path("/auth/**",
-                                        "/user-service/**",
-                                        "/security/session/**",
-                                        "/register/**",
-                                        "/settings/**")
-                                .uri("http://10.10.14.53:9001"))
-                .route("info",
-                        predicate -> predicate
-                                .path("/bank-branch/**",
-                                        "/currency/**",
-                                        "/exchange-rates/**")
-                                .uri("http://10.10.14.53:9006"))
+//                .route("user",
+//                        predicate -> predicate
+//                                .path("/auth/**",
+//                                        "/user-service/**",
+//                                        "/security/session/**",
+//                                        "/register/**",
+//                                        "/settings/**")
+//                                .uri("http://10.10.14.53:9001"))
+//                .route("info",
+//                        predicate -> predicate
+//                                .path("/bank-branch/**",
+//                                        "/currency/**",
+//                                        "/exchange-rates/**")
+//                                .uri("http://10.10.14.53:9006"))
                 .build();
     }
 
