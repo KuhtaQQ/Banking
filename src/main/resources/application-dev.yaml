@@ -23,15 +23,15 @@ spring:
           uri: lb://deposit
           predicates:
             - Path=/auth/cards-products/**, /auth/deposit-cards/**, /auth/deposits/**, /auth/deposit-products/**, /auth/accounts/**
-        - id: credit-service
+        - id: credit
           uri: lb://credit
           predicates:
             - Path=/credit-cards/**, /credits/**, /credit-orders/**, /credit-products/**
-        - id: user-service
+        - id: user
           uri: lb://user
           predicates:
             - Path=/auth/**, /user-service/**, /security/session/**, /register/**, /user/settings/**
-        - id: info-service
+        - id: info
           uri: lb://info
           predicates:
             - Path=/api/v1/bank-branch/**, /api/v1/currency/**, /api/v1/exchange-rates/**
@@ -54,12 +54,12 @@ springdoc:
     operationsSorter: method
     urls:
       - name: deposit
-        url: /deposit-service/api-docs
+        url: /deposit/api-docs
       - name: credit
-        url: /credit-service/api-docs
+        url: /credit/api-docs
       - name: user
-        url: /user-service/api-docs
+        url: /user/api-docs
       - name: info
-        url: /info-service/api-docs
+        url: /info/api-docs
   webjars:
     prefix: rmt-bank
