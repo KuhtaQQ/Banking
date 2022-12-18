@@ -22,7 +22,7 @@ spring:
         - id: deposit-service
           uri: lb://deposit-service
           predicates:
-            - Path=/cards-products/**, /deposit-cards/**, /deposits/**, /deposit-products/**, /accounts/**
+            - Path=/auth/cards-products/**, /auth/deposit-cards/**, /auth/deposits/**, /auth/deposit-products/**, /auth/accounts/**
         - id: credit-service
           uri: lb://credit-service
           predicates:
@@ -34,19 +34,19 @@ spring:
         - id: info-service
           uri: lb://info-service
           predicates:
-            - Path=/bank-branch/**, /currency/**, /exchange-rates/**
+            - Path=/bank-branch/**, /api/v1/currency/**, /api/v1/exchange-rates/**
 
 eureka:
   instance:
     instance-id: ${spring.application.name}
     preferIpAddress: true
-    ip-address: ${server.address:10.10.14.53}
-    non-secure-port: 9005
   client:
     serviceUrl:
-      defaultZone: http://10.10.14.11:9004/eureka
+      defaultZone: http://localhost:8761/eureka
 
 springdoc:
+  show-actuator: false
+  use-management-port: false
   api-docs:
     path: '/api-docs'
   swagger-ui:
