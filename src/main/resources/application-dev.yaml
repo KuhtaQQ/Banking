@@ -11,8 +11,8 @@ spring:
     loadbalancer:
       ribbon:
         enabled: false
-#    discovery:
-#      enabled: true
+    discovery:
+      enabled: false
 #    gateway:
 #      discovery:
 #        locator:

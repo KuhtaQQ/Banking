@@ -14,11 +14,7 @@ public class GatewayRotesConf {
                 .routes()
                 .route("1",
                         predicate -> predicate
-                                .path("deposit/cards-products",
-                                        "/auth/deposit-cards",
-                                        "/auth/deposits",
-                                        "/auth/deposit-products",
-                                        "/auth/accounts")
+                                .path("/cards-products")
                                 .uri("http://10.10.14.53:9003/auth/cards-products"))
 //                .route("2",
 //                        predicate -> predicate
