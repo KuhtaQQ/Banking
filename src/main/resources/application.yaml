@@ -18,23 +18,22 @@ spring:
           enabled: true
           lower-case-service-id: true
       routes:
-        - id: deposit-service
-          uri: lb://deposit-service
+        - id: deposit
+          uri: lb://deposit
           predicates:
-            - Path=/cards-products/**, /deposit-cards/**, /deposits/**, /deposit-products/**, /accounts/**
-        - id: credit-service
-          uri: lb://credit-service
+            - Path=/auth/cards-products/**, /auth/deposit-cards/**, /auth/deposits/**, /auth/deposit-products/**, /auth/accounts/**
+        - id: credit
+          uri: lb://credit
           predicates:
             - Path=/credit-cards/**, /credits/**, /credit-orders/**, /credit-products/**
-        - id: user-service
-          uri: lb://user-service
+        - id: user
+          uri: lb://user
           predicates:
-            - Path=/auth/**, /user-service/**, /security/session/**, /register/**, /user/settings/**
-        - id: info-service
-          uri: lb://info-service
+            - Path=/auth/**, /user-service/**, /security/session/**, /register/**, /settings/**
+        - id: info
+          uri: lb://info
           predicates:
             - Path=/bank-branch/**, /currency/**, /exchange-rates/**
-
 eureka:
   instance:
     instance-id: ${spring.application.name}
