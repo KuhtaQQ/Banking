@@ -34,7 +34,7 @@ spring:
         - id: info-service
           uri: lb://info
           predicates:
-            - Path=/bank-branch/**, /currency/**, /exchange-rates/**
+            - Path=/api/v1/bank-branch/**, /api/v1/currency/**, /api/v1/exchange-rates/**
 
 eureka:
   instance:
