@@ -19,20 +19,20 @@ spring:
           enabled: true
           lower-case-service-id: true
       routes:
-        - id: deposit-service
-          uri: lb://deposit-service
+        - id: deposit
+          uri: lb://deposit
           predicates:
             - Path=/auth/cards-products/**, /auth/deposit-cards/**, /auth/deposits/**, /auth/deposit-products/**, /auth/accounts/**
         - id: credit-service
-          uri: lb://credit-service
+          uri: lb://credit
           predicates:
             - Path=/credit-cards/**, /credits/**, /credit-orders/**, /credit-products/**
         - id: user-service
-          uri: lb://user-service
+          uri: lb://user
           predicates:
             - Path=/auth/**, /user-service/**, /security/session/**, /register/**, /user/settings/**
         - id: info-service
-          uri: lb://info-service
+          uri: lb://info
           predicates:
             - Path=/bank-branch/**, /currency/**, /exchange-rates/**
 
